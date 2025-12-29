@@ -92,8 +92,16 @@ git clone https://github.com/Marcosvcv/base-treasury.git
 cd base-treasury
 
 # Install all dependencies
-npm run install:all
+npm install --legacy-peer-deps
+cd contracts && forge install && cd ..
+cd indexer && npm install && cd ..
+cd backend && npm install && cd ..
+cd frontend && npm install --legacy-peer-deps && cd ..
 ```
+
+### Quick Start (5 minutes)
+
+See [QUICKSTART.md](./QUICKSTART.md) for a step-by-step guide.
 
 ### Local Development
 
@@ -116,6 +124,20 @@ npm run dev
 # Start frontend
 cd ../frontend
 npm run dev
+```
+
+### Deploy to Base Networks
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
+
+**Deploy to Base Sepolia:**
+```bash
+./scripts/deploy-sepolia.sh
+```
+
+**Deploy to Base Mainnet:**
+```bash
+./scripts/deploy-mainnet.sh
 ```
 
 ## 📁 Project Structure
