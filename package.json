@@ -1,0 +1,54 @@
+{
+  "name": "base-treasury",
+  "version": "0.1.0",
+  "description": "Transparent on-chain treasury + spending intelligence for Base DAOs & protocols",
+  "private": true,
+  "workspaces": [
+    "contracts",
+    "indexer",
+    "backend",
+    "frontend",
+    "sdk/js"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm run install:contracts && npm run install:indexer && npm run install:backend && npm run install:frontend && npm run install:sdk",
+    "install:contracts": "cd contracts && forge install",
+    "install:indexer": "cd indexer && npm install",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "install:sdk": "cd sdk/js && npm install",
+    "build": "npm run build:contracts && npm run build:indexer && npm run build:backend && npm run build:frontend && npm run build:sdk",
+    "build:contracts": "cd contracts && forge build",
+    "build:indexer": "cd indexer && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build:sdk": "cd sdk/js && npm run build",
+    "test": "npm run test:contracts && npm run test:indexer && npm run test:backend && npm run test:frontend && npm run test:sdk",
+    "test:contracts": "cd contracts && forge test",
+    "test:indexer": "cd indexer && npm test",
+    "test:backend": "cd backend && npm test",
+    "test:frontend": "cd frontend && npm test",
+    "test:sdk": "cd sdk/js && npm test",
+    "lint": "npm run lint:indexer && npm run lint:backend && npm run lint:frontend && npm run lint:sdk",
+    "lint:indexer": "cd indexer && npm run lint",
+    "lint:backend": "cd backend && npm run lint",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:sdk": "cd sdk/js && npm run lint"
+  },
+  "keywords": [
+    "base",
+    "treasury",
+    "dao",
+    "analytics",
+    "blockchain",
+    "ethereum",
+    "defi"
+  ],
+  "author": "Marcosvcv",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Marcosvcv/base-treasury.git"
+  }
+}
+

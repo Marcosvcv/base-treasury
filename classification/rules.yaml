@@ -1,0 +1,77 @@
+# BaseTreasury Classification Rules
+# These rules determine how transactions are categorized
+
+GRANT:
+  conditions:
+    value:
+      min: "0.1"  # Minimum 0.1 ETH
+    receiver_type: "EOA"  # Usually sent to EOA addresses
+    note_contains:
+      - "grant"
+      - "bounty"
+      - "funding"
+
+SALARY:
+  conditions:
+    value:
+      min: "0.5"  # Usually larger amounts
+    note_contains:
+      - "salary"
+      - "payroll"
+      - "compensation"
+
+DEVELOPMENT:
+  conditions:
+    note_contains:
+      - "dev"
+      - "development"
+      - "code"
+      - "engineering"
+    to_address:
+      # Add known development service addresses
+
+LIQUIDITY:
+  conditions:
+    to_address:
+      # Add known DEX addresses (Uniswap, etc.)
+    note_contains:
+      - "liquidity"
+      - "lp"
+      - "pool"
+
+MARKETING:
+  conditions:
+    note_contains:
+      - "marketing"
+      - "promo"
+      - "ad"
+      - "advertising"
+    value:
+      max: "10"  # Usually smaller amounts
+
+INFRASTRUCTURE:
+  conditions:
+    note_contains:
+      - "infra"
+      - "infrastructure"
+      - "hosting"
+      - "server"
+      - "rpc"
+    to_address:
+      # Add known infrastructure service addresses
+
+OPERATIONS:
+  conditions:
+    value:
+      min: "0.01"
+      max: "1"  # Small to medium operational expenses
+    note_contains:
+      - "ops"
+      - "operations"
+      - "gas"
+      - "fee"
+
+UNKNOWN:
+  # Default category for transactions that don't match any rule
+  conditions: {}
+
